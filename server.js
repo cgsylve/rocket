@@ -20,7 +20,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse applica
 app.use(methodOverride());
 
 app.get('*', function(req, res){
-    res.sendFile('./public/index.html');
+    res.sendFile('./index.html');
 });
 
 // listen (start app with node server.js) ======================================

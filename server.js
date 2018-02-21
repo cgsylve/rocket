@@ -7,6 +7,7 @@ let mongoose = require('mongoose');                     // mongoose for mongodb
 let morgan = require('morgan');             // log requests to the console (express4)
 let bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 let methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
+let path = require('path');
 
 // configuration =================
 
@@ -19,8 +20,8 @@ app.use(bodyParser.json());                                     // parse applica
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(methodOverride());
 
-app.get('*', function(req, res){
-    res.sendFile('./index.html');
+app.get('/', function(req, res){
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 // listen (start app with node server.js) ======================================
